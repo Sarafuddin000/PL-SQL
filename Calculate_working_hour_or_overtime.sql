@@ -8,7 +8,7 @@ select trunc(s/(60*60))||':'||lpad(mod(trunc(s/60),60),2,'0')Total_ot into v_Tot
  select sum(substr(h.over_time_hour,1,2)*60*60+substr(h.over_time_hour,4,2)*60) s
    from HRM_Attendance h where emp_id = p_Emp_id);
 
-RETURN v_Total_ot;
+RETURN v_Total_ot;        -----Returns: 36.30
 
 EXCEPTION
     WHEN OTHERS THEN
@@ -24,7 +24,7 @@ BEGIN
  select sum(substr(h.over_time_hour,1,2)*60+substr(h.over_time_hour,-2))/60 into v_Total_ot_min
    from HRM_Attendance h where emp_id = p_Emp_id;
 
-RETURN v_Total_ot_min;
+RETURN v_Total_ot_min;        -----Returns: 36.5
 
 EXCEPTION
     WHEN OTHERS THEN
